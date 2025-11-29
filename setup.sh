@@ -76,10 +76,10 @@ die() {
 
 show_banner() {
     cat << 'EOF'
-╔═══════════════════════════════════════════════════════════════════════╗
-║                                                                       ║
+╔══════════════════════════════════════════════════════════════════════╗
+║                                                                      ║
 ║      SECURE SERVER SETUP FRAMEWORK FOR DEBIAN 13                     ║
-║                                                                       ║
+║                                                                      ║
 ║      This script will perform the following:                         ║
 ║      • Harden SSH configuration                                      ║
 ║      • Configure secure firewall rules (nftables/UFW)                ║
@@ -95,8 +95,8 @@ show_banner() {
 ║      • You may be locked out if SSH keys are not properly set        ║
 ║      • Firewall rules will be applied                                ║
 ║      • All actions are logged                                        ║
-║                                                                       ║
-╚═══════════════════════════════════════════════════════════════════════╝
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
 
 EOF
 }
@@ -670,7 +670,7 @@ main() {
     show_lockout_warning
 
     # Confirm installation
-    if [[ "${NON_INTERACTIVE:-false}" != "true" ]]; then
+    if [[ "${NON_INTERACTIVE:-false}" = "true" ]]; then
         read -p "Do you want to continue with the installation? (yes/no): " -r
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
