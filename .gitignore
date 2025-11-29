@@ -1,0 +1,46 @@
+# Environment and secrets
+.env
+*.env
+!.env.sample
+
+# Logs
+*.log
+logs/
+/var/log/
+
+# Backups
+backups/
+*.tar.gz
+*.backup
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# SSH keys (should never be in repo)
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+authorized_keys
+
+# System files
+.state
+*.pid
+
+# Test outputs
+test-results/
+coverage/
