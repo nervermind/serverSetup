@@ -22,7 +22,7 @@ set -euo pipefail
 # ============================================================================
 
 readonly SCRIPT_VERSION="1.0.0"
-readonly REPO_BASE_URL="${REPO_BASE_URL:-https://raw.githubusercontent.com/USERNAME/REPO/main}"
+readonly REPO_BASE_URL="${REPO_BASE_URL:-https://raw.githubusercontent.com/nervermind/serverSetup/main}"
 readonly INSTALL_DIR="/opt/server-setup"
 readonly LOG_DIR="/var/log/server-setup"
 readonly LOG_FILE="${LOG_DIR}/install-$(date +%Y%m%d-%H%M%S).log"

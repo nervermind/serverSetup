@@ -4,7 +4,7 @@
 
 ```bash
 # One-line install
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 ## 🔧 Common Commands

@@ -18,7 +18,7 @@ Before running the installer, make sure you have:
 **For interactive setup:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 The script will prompt you for all required information.
@@ -28,7 +28,7 @@ The script will prompt you for all required information.
 **1. Download configuration template:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/.env.sample -o .env
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/.env.sample -o .env
 ```
 
 **2. Edit configuration:**

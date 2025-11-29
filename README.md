@@ -11,13 +11,13 @@ A comprehensive, production-ready, curl-installable framework for setting up and
 **One-line installation:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 Or with wget:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+wget -qO- https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 ⚠️ **Before running**, please read the [Security Warnings](#-security-warnings) section below.
