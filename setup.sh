@@ -676,9 +676,13 @@ main() {
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
+        else
+            log_info "test"
         fi
     fi
 
+    exit 0 
+    
     log_info "Starting Secure Server Setup Framework v${SCRIPT_VERSION}"
 
     # Root check
