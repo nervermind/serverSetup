@@ -88,7 +88,7 @@ show_banner() {
 ║      • Enable fail2ban, auditd, and security monitoring              ║
 ║      • Configure automated cloud backups                             ║
 ║      • Apply OS-level security hardening                             ║
-║                                                                       ║
+║                                                                      ║
 ║      ⚠️  WARNINGS:                                                    ║
 ║      • This script requires ROOT access                              ║
 ║      • SSH configuration will be modified                            ║
@@ -230,7 +230,7 @@ download_file() {
 }
 
 download_scripts() {
-    log_info "Downloading installation scripts..."
+    log_info "Downloading installation scripts into ${INSTALL_DIR}/scripts ..."
 
     mkdir -p "${INSTALL_DIR}/scripts"
 
@@ -670,7 +670,8 @@ main() {
     show_lockout_warning
 
     # Confirm installation
-    if [[ "${NON_INTERACTIVE:-false}" = "true" ]]; then
+    log_info "Checking for NON_INTERACTIVE"
+    if [[ "${NON_INTERACTIVE:-false}" != "true" ]]; then
         read -p "Do you want to continue with the installation? (yes/no): " -r
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
