@@ -114,7 +114,7 @@ wget -qO- https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh
 ### Method 1: One-Line Install (Recommended)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 The installer will:
@@ -130,7 +130,7 @@ The installer will:
 1. Download the configuration template:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/.env.sample -o .env
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/.env.sample -o .env
 ```
 
 2. Edit `.env` with your settings:
@@ -142,13 +142,13 @@ nano .env
 3. Run the installer:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 ### Method 3: Clone and Run
 
 ```bash
-git clone https://github.com/USERNAME/REPO.git
+git clone https://github.com/nervermind/serverSetup.git
 cd REPO
 cp .env.sample .env
 # Edit .env with your settings
@@ -168,7 +168,7 @@ export PROXY_TYPE=traefik
 export DOMAIN=example.com
 export LETSENCRYPT_EMAIL=admin@example.com
 
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 ## ⚙️ Configuration
@@ -236,7 +236,7 @@ All original configurations are backed up to `/root/server-setup-backup/`.
 Always verify the script before running:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh -o setup.sh
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh -o setup.sh
 less setup.sh  # Review the script
 sudo bash setup.sh
 ```
@@ -432,7 +432,7 @@ ls -lh /var/log/server-setup/
 The installer is idempotent and can be safely re-run:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 Existing configurations will be preserved unless explicitly overwritten.
@@ -538,8 +538,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/USERNAME/REPO/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/USERNAME/REPO/discussions)
+- **Issues**: [GitHub Issues](https://github.com/nervermind/serverSetup/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/nervermind/serverSetup/discussions)
 - **Security**: Please report security issues privately to security@example.com
 
 ---

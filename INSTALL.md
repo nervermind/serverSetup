@@ -50,7 +50,7 @@ LETSENCRYPT_EMAIL=you@example.com
 **3. Run installer:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 ### Method 3: Clone and Install
@@ -58,7 +58,7 @@ curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo 
 **1. Clone repository:**
 
 ```bash
-git clone https://github.com/USERNAME/REPO.git
+git clone https://github.com/nervermind/serverSetup.git
 cd REPO
 ```
 
@@ -104,7 +104,7 @@ export AWS_ACCESS_KEY_ID=AKIA...
 export AWS_SECRET_ACCESS_KEY=secret...
 export AWS_S3_BUCKET=my-backups
 
-curl -fsSL https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+curl -fsSL https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 ## What Happens During Installation
@@ -296,7 +296,7 @@ ping -c 3 raw.githubusercontent.com
 dig raw.githubusercontent.com
 
 # Try with wget instead
-wget -qO- https://raw.githubusercontent.com/USERNAME/REPO/main/setup.sh | sudo bash
+wget -qO- https://raw.githubusercontent.com/nervermind/serverSetup/main/setup.sh | sudo bash
 ```
 
 ### Problem: Checksum Verification Failed
@@ -353,7 +353,7 @@ If you encounter issues:
 
 1. **Check logs**: `/var/log/server-setup/install-*.log`
 2. **Run health check**: `/opt/server-setup/scripts/15-healthcheck.sh`
-3. **Search issues**: https://github.com/USERNAME/REPO/issues
+3. **Search issues**: https://github.com/nervermind/serverSetup/issues
 4. **Open new issue**: Include logs and system info
 
 ## Next Steps
