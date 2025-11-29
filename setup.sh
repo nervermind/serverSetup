@@ -679,10 +679,12 @@ main() {
         else
             log_info "test"
         fi
+    else
+        log_info "test2"
     fi
 
     exit 0 
-    
+
     log_info "Starting Secure Server Setup Framework v${SCRIPT_VERSION}"
 
     # Root check
