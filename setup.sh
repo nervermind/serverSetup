@@ -155,8 +155,7 @@ check_os() {
     local version_id="${VERSION_ID:-0}"
     if [[ "$version_id" -lt 13 ]]; then
         log_warn "This script is optimized for Debian 13. You are running Debian $version_id"
-        echo -n "Continue anyway? (yes/no): "
-        read -r REPLY </dev/tty
+        read -p "Continue anyway? (yes/no): " -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             die "Installation cancelled by user"
         fi
@@ -357,8 +356,7 @@ interactive_config() {
     # SSH public key
     if [[ -z "${ADMIN_SSH_KEY:-}" ]]; then
         echo ""
-        echo "Enter your SSH public key (paste the entire key):"
-        read -r ADMIN_SSH_KEY </dev/tty
+        read -p "Enter your SSH public key (paste the entire key):" -r ADMIN_SSH_KEY </dev/tty
         if [[ -z "$ADMIN_SSH_KEY" ]]; then
             log_warn "No SSH key provided. You may be locked out!"
         fi
