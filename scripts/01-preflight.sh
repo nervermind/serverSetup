@@ -380,6 +380,7 @@ main() {
     )
 
     for check in "${checks[@]}"; do
+        log_info "Running $check..."
         if $check; then
             ((checks_passed++))
         else
