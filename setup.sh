@@ -684,8 +684,7 @@ main() {
     # Confirm installation
     if [[ "${NON_INTERACTIVE:-false}" != "true" ]]; then
         echo ""
-        echo -n "Do you want to continue with the installation? (yes/no): "
-        read -r REPLY </dev/tty
+        read -p "Do you want to continue with the installation? (yes/no): " -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
@@ -721,7 +720,6 @@ main() {
     if [[ "${NON_INTERACTIVE:-false}" != "true" ]]; then
         echo ""
         log_warn "Last chance to abort!"
-        echo -n "Proceed with installation? (yes/no): "
         read -p "Proceed with installation? (yes/no): " -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
