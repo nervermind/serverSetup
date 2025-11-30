@@ -722,7 +722,7 @@ main() {
         echo ""
         log_warn "Last chance to abort!"
         echo -n "Proceed with installation? (yes/no): "
-        read -r REPLY </dev/tty
+        read -p "Proceed with installation? (yes/no): " -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
