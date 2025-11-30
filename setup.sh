@@ -690,8 +690,6 @@ main() {
         log_info "User confirmed installation"
     fi
 
-    exit 0 
-
     log_info "Starting Secure Server Setup Framework v${SCRIPT_VERSION}"
 
     # Root check
