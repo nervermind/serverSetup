@@ -379,7 +379,7 @@ main() {
         "check_timezone"
     )
 
-    for check in "${checks[@]}"; do
+    for check in "${checks[@]}"; do 
         log_info "Running $check..."
         if $check; then
             ((checks_passed++))
