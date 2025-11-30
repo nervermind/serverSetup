@@ -674,11 +674,11 @@ main() {
         echo ""
         echo -n "Do you want to continue with the installation? (yes/no): "
         read -r REPLY
-        echo "[$(date '+%Y-%m-%d %H:%M:%S')] User response: $REPLY" >> "${LOG_FILE}"
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
         fi
+        log_info "User confirmed installation"
     fi
 
     exit 0 
@@ -711,11 +711,11 @@ main() {
         log_warn "Last chance to abort!"
         echo -n "Proceed with installation? (yes/no): "
         read -r REPLY
-        echo "[$(date '+%Y-%m-%d %H:%M:%S')] User response: $REPLY" >> "${LOG_FILE}"
-        if [[ ! $REPLY =~ ^[Yy][Ee][Ses]$ ]]; then
+        if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
         fi
+        log_info "User confirmed - proceeding with installation"
     fi
 
     # Run installation
