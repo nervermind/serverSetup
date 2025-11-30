@@ -670,17 +670,15 @@ main() {
     show_lockout_warning
 
     # Confirm installation
-    log_info "Checking for NON_INTERACTIVE"
     if [[ "${NON_INTERACTIVE:-false}" != "true" ]]; then
-        read -p "Do you want to continue with the installation? (yes/no): " -r
+        echo ""
+        echo -n "Do you want to continue with the installation? (yes/no): "
+        read -r REPLY
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] User response: $REPLY" >> "${LOG_FILE}"
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
-        else
-            log_info "test"
         fi
-    else
-        log_info "test2"
     fi
 
     exit 0 
@@ -711,8 +709,10 @@ main() {
     if [[ "${NON_INTERACTIVE:-false}" != "true" ]]; then
         echo ""
         log_warn "Last chance to abort!"
-        read -p "Proceed with installation? (yes/no): " -r
-        if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
+        echo -n "Proceed with installation? (yes/no): "
+        read -r REPLY
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] User response: $REPLY" >> "${LOG_FILE}"
+        if [[ ! $REPLY =~ ^[Yy][Ee][Ses]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
         fi
