@@ -314,7 +314,7 @@ check_kernel_version() {
 update_package_cache() {
     log_info "Updating package cache..."
 
-    if apt-get update -qq 2>&1 | grep -v "^Ign:" > /dev/null; then
+    if apt-get update -qq >/dev/null 2>&1; then
         log_info "Package cache updated"
         return 0
     else
