@@ -155,7 +155,8 @@ check_os() {
     local version_id="${VERSION_ID:-0}"
     if [[ "$version_id" -lt 13 ]]; then
         log_warn "This script is optimized for Debian 13. You are running Debian $version_id"
-        read -p "Continue anyway? (yes/no): " -r
+        echo -n "Continue anyway? (yes/no): "
+        read -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             die "Installation cancelled by user"
         fi
@@ -197,7 +198,8 @@ check_not_container() {
 
     if [[ -f /.dockerenv ]] || grep -qa container=lxc /proc/1/environ; then
         log_warn "Running inside a container. Some features may not work correctly."
-        read -p "Continue anyway? (yes/no): " -r
+        echo -n "Continue anyway? (yes/no): "
+        read -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             die "Installation cancelled by user"
         fi
@@ -346,7 +348,8 @@ interactive_config() {
 
     # Admin user configuration
     if [[ -z "${ADMIN_USERNAME:-}" ]]; then
-        read -p "Enter admin username [admin]: " ADMIN_USERNAME
+        echo -n "Enter admin username [admin]: "
+        read -r ADMIN_USERNAME </dev/tty
         ADMIN_USERNAME="${ADMIN_USERNAME:-admin}"
     fi
     export ADMIN_USERNAME
@@ -355,7 +358,7 @@ interactive_config() {
     if [[ -z "${ADMIN_SSH_KEY:-}" ]]; then
         echo ""
         echo "Enter your SSH public key (paste the entire key):"
-        read -r ADMIN_SSH_KEY
+        read -r ADMIN_SSH_KEY </dev/tty
         if [[ -z "$ADMIN_SSH_KEY" ]]; then
             log_warn "No SSH key provided. You may be locked out!"
         fi
@@ -364,13 +367,15 @@ interactive_config() {
 
     # SSH configuration
     if [[ -z "${DISABLE_ROOT_LOGIN:-}" ]]; then
-        read -p "Disable SSH root login after setup? (yes/no) [yes]: " DISABLE_ROOT_LOGIN
+        echo -n "Disable SSH root login after setup? (yes/no) [yes]: "
+        read -r DISABLE_ROOT_LOGIN </dev/tty
         DISABLE_ROOT_LOGIN="${DISABLE_ROOT_LOGIN:-yes}"
     fi
     export DISABLE_ROOT_LOGIN
 
     if [[ -z "${SSH_PORT:-}" ]]; then
-        read -p "SSH port [22]: " SSH_PORT
+        echo -n "SSH port [22]: "
+        read -r SSH_PORT </dev/tty
         SSH_PORT="${SSH_PORT:-22}"
     fi
     export SSH_PORT
@@ -382,7 +387,8 @@ interactive_config() {
         echo "  1) Traefik (recommended for Docker)"
         echo "  2) Nginx"
         echo "  3) None"
-        read -p "Selection [1]: " proxy_choice
+        echo -n "Selection [1]: "
+        read -r proxy_choice </dev/tty
         proxy_choice="${proxy_choice:-1}"
 
         case $proxy_choice in
@@ -397,33 +403,38 @@ interactive_config() {
     # Domain and Let's Encrypt
     if [[ "$PROXY_TYPE" != "none" ]]; then
         if [[ -z "${DOMAIN:-}" ]]; then
-            read -p "Primary domain name (e.g., example.com): " DOMAIN
+            echo -n "Primary domain name (e.g., example.com): "
+            read -r DOMAIN </dev/tty
         fi
         export DOMAIN
 
         if [[ -z "${LETSENCRYPT_EMAIL:-}" ]]; then
-            read -p "Email for Let's Encrypt notifications: " LETSENCRYPT_EMAIL
+            echo -n "Email for Let's Encrypt notifications: "
+            read -r LETSENCRYPT_EMAIL </dev/tty
         fi
         export LETSENCRYPT_EMAIL
     fi
 
     # Portainer
     if [[ -z "${INSTALL_PORTAINER:-}" ]]; then
-        read -p "Install Portainer for Docker management? (yes/no) [yes]: " INSTALL_PORTAINER
+        echo -n "Install Portainer for Docker management? (yes/no) [yes]: "
+        read -r INSTALL_PORTAINER </dev/tty
         INSTALL_PORTAINER="${INSTALL_PORTAINER:-yes}"
     fi
     export INSTALL_PORTAINER
 
     # Automatic updates
     if [[ -z "${ENABLE_AUTO_UPDATES:-}" ]]; then
-        read -p "Enable automatic security updates? (yes/no) [yes]: " ENABLE_AUTO_UPDATES
+        echo -n "Enable automatic security updates? (yes/no) [yes]: "
+        read -r ENABLE_AUTO_UPDATES </dev/tty
         ENABLE_AUTO_UPDATES="${ENABLE_AUTO_UPDATES:-yes}"
     fi
     export ENABLE_AUTO_UPDATES
 
     # Backup configuration
     if [[ -z "${ENABLE_BACKUPS:-}" ]]; then
-        read -p "Configure automated backups? (yes/no) [yes]: " ENABLE_BACKUPS
+        echo -n "Configure automated backups? (yes/no) [yes]: "
+        read -r ENABLE_BACKUPS </dev/tty
         ENABLE_BACKUPS="${ENABLE_BACKUPS:-yes}"
     fi
     export ENABLE_BACKUPS
@@ -436,7 +447,8 @@ interactive_config() {
             echo "  2) Backblaze B2"
             echo "  3) DigitalOcean Spaces"
             echo "  4) MinIO / S3-compatible"
-            read -p "Selection [1]: " backup_choice
+            echo -n "Selection [1]: "
+            read -r backup_choice </dev/tty
             backup_choice="${backup_choice:-1}"
 
             case $backup_choice in
@@ -673,7 +685,7 @@ main() {
     if [[ "${NON_INTERACTIVE:-false}" != "true" ]]; then
         echo ""
         echo -n "Do you want to continue with the installation? (yes/no): "
-        read -r REPLY
+        read -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
@@ -710,7 +722,7 @@ main() {
         echo ""
         log_warn "Last chance to abort!"
         echo -n "Proceed with installation? (yes/no): "
-        read -r REPLY
+        read -r REPLY </dev/tty
         if [[ ! $REPLY =~ ^[Yy][Ee][Ss]$ ]]; then
             log_info "Installation cancelled by user"
             exit 0
