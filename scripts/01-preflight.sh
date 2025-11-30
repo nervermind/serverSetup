@@ -314,13 +314,13 @@ check_kernel_version() {
 update_package_cache() {
     log_info "Updating package cache..."
 
-    if ! apt-get update -qq 2>&1 | grep -v "^Ign:" ; then
+    if apt-get update -qq 2>&1 | grep -v "^Ign:" > /dev/null; then
+        log_info "Package cache updated"
+        return 0
+    else
         log_error "Failed to update package cache"
         return 1
     fi
-
-    log_info "Package cache updated"
-    return 0
 }
 
 install_prerequisites() {
